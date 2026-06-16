@@ -8,29 +8,31 @@ import {
 } from '@/components/ui/table'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
-import { Search, Plus } from 'lucide-react'
+import { Button } from '@/components/ui/button'
+import { Badge } from '@/components/ui/badge'
+import { Search, Plus, MoreHorizontal } from 'lucide-react'
 
 export default function CompanyManagement() {
   const companies = [
-    { id: 1, name: 'Acme Retail', users: 12, status: 'Active', plan: 'Enterprise' },
-    { id: 2, name: 'Global Tech POS', users: 45, status: 'Active', plan: 'Pro' },
-    { id: 3, name: 'Coffee Shop Central', users: 8, status: 'Suspended', plan: 'Starter' },
-    { id: 4, name: 'Boutique XYZ', users: 2, status: 'Active', plan: 'Starter' },
+    { id: 1, name: 'Acme Retail', users: 12, status: 'Active', plan: 'Enterprise', joined: '2025-01-12' },
+    { id: 2, name: 'Global Tech POS', users: 45, status: 'Active', plan: 'Pro', joined: '2025-02-05' },
+    { id: 3, name: 'Coffee Shop Central', users: 8, status: 'Suspended', plan: 'Starter', joined: '2025-03-22' },
+    { id: 4, name: 'Boutique XYZ', users: 2, status: 'Active', plan: 'Starter', joined: '2025-04-10' },
   ]
 
   return (
     <div className="space-y-6">
       <div className="flex justify-between items-center">
         <div>
-          <h1 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">Companies</h1>
+          <h1 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">Companies & Tenants</h1>
           <p className="text-slate-500 dark:text-slate-400 mt-1">
-            Manage your tenants, their subscriptions, and access.
+            Manage your tenants, their subscriptions, and system access.
           </p>
         </div>
-        <button className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md font-medium transition-colors shadow-sm">
-          <Plus className="h-4 w-4" />
+        <Button className="bg-slate-900 hover:bg-slate-800 text-white dark:bg-white dark:text-slate-900 dark:hover:bg-slate-100">
+          <Plus className="h-4 w-4 mr-2" />
           Add Company
-        </button>
+        </Button>
       </div>
 
       <Card className="border-slate-200 dark:border-slate-800 shadow-sm">
@@ -41,7 +43,7 @@ export default function CompanyManagement() {
             <Input 
               type="text" 
               placeholder="Search companies..." 
-              className="pl-9 bg-slate-50 dark:bg-slate-900 border-slate-200 dark:border-slate-800" 
+              className="pl-9 bg-slate-50 dark:bg-slate-900/50 border-slate-200 dark:border-slate-800 focus-visible:ring-slate-400" 
             />
           </div>
         </CardHeader>
@@ -52,6 +54,7 @@ export default function CompanyManagement() {
                 <TableHead>Company Name</TableHead>
                 <TableHead>Plan</TableHead>
                 <TableHead>Users</TableHead>
+                <TableHead>Joined Date</TableHead>
                 <TableHead>Status</TableHead>
                 <TableHead className="text-right">Actions</TableHead>
               </TableRow>
@@ -64,19 +67,17 @@ export default function CompanyManagement() {
                   </TableCell>
                   <TableCell>{company.plan}</TableCell>
                   <TableCell>{company.users}</TableCell>
+                  <TableCell className="text-slate-500">{company.joined}</TableCell>
                   <TableCell>
-                    <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
-                      company.status === 'Active' 
-                        ? 'bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-400'
-                        : 'bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400'
-                    }`}>
+                    <Badge variant={company.status === 'Active' ? 'default' : 'destructive'} 
+                           className={company.status === 'Active' ? 'bg-emerald-100 text-emerald-800 hover:bg-emerald-200 dark:bg-emerald-900/30 dark:text-emerald-400' : ''}>
                       {company.status}
-                    </span>
+                    </Badge>
                   </TableCell>
                   <TableCell className="text-right">
-                    <button className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 font-medium text-sm">
-                      Manage
-                    </button>
+                    <Button variant="ghost" size="sm" className="text-slate-500 hover:text-slate-900 dark:hover:text-white">
+                      <MoreHorizontal className="h-4 w-4" />
+                    </Button>
                   </TableCell>
                 </TableRow>
               ))}

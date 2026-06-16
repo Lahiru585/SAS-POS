@@ -6,7 +6,7 @@ export default function SuperAdminDashboard() {
     { title: 'Total Companies', value: '142', icon: Building2, change: '+12%', trend: 'up' },
     { title: 'Active Terminals', value: '845', icon: Activity, change: '+4.5%', trend: 'up' },
     { title: 'Total Users', value: '3,204', icon: Users, change: '+18%', trend: 'up' },
-    { title: 'Monthly Revenue', value: '$45,231', icon: CreditCard, change: '+8%', trend: 'up' },
+    { title: 'Monthly Revenue', value: 'LKR 45,231', icon: CreditCard, change: '+8%', trend: 'up' },
   ]
 
   return (
@@ -55,7 +55,7 @@ export default function SuperAdminDashboard() {
             <div className="space-y-4">
               {[1, 2, 3, 4, 5].map((i) => (
                 <div key={i} className="flex items-center gap-4">
-                  <div className="h-2 w-2 rounded-full bg-blue-500" />
+                  <div className="h-2 w-2 rounded-full bg-slate-900 dark:bg-slate-100" />
                   <div className="flex-1">
                     <p className="text-sm font-medium">New tenant registered</p>
                     <p className="text-xs text-slate-500">Retail Corp Ltd.</p>
