@@ -14,6 +14,8 @@ import Settings from './apps/super-admin/pages/Settings'
 
 import TenantLayout from './apps/tenant/layout'
 import TenantDashboard from './apps/tenant/pages/Dashboard'
+import Resturent from './apps/tenant/pages/Resturent'
+import Subscription from './apps/tenant/pages/Subscription'
 
 function App() {
   return (
@@ -41,6 +43,9 @@ function App() {
         {/* Tenant Routes */}
         <Route path="/tenant" element={<TenantLayout />}>
           <Route path="dashboard" element={<TenantDashboard />} />
+          <Route path="resturent" element={<Resturent />} />
+          <Route path="Subscription" element={<Subscription />} />
+
           <Route index element={<Navigate to="dashboard" replace />} />
         </Route>
       </Routes>

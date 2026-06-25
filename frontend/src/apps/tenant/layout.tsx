@@ -7,9 +7,8 @@ export default function TenantLayout() {
 
   const navigation = [
     { name: 'Dashboard', href: '/tenant/dashboard', icon: LayoutDashboard },
-    { name: 'Point of Sale', href: '/tenant/pos', icon: ShoppingCart },
-    { name: 'Inventory', href: '/tenant/inventory', icon: Package },
-    { name: 'Customers', href: '/tenant/customers', icon: Users },
+    { name: 'Resturent', href: '/tenant/resturent', icon: ShoppingCart },
+    { name: 'Subscription', href: '/tenant/Subscription', icon: ShoppingCart },
     { name: 'Settings', href: '/tenant/settings', icon: Settings },
   ]
 
