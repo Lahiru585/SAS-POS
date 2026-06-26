@@ -67,7 +67,7 @@ export default function TenantLayout() {
           </div>
           <button className="flex items-center gap-3 px-3 py-2 mt-2 rounded-md transition-colors text-sm font-medium text-red-600 hover:bg-red-50 dark:text-red-400 dark:hover:bg-red-900/30 w-full">
             <LogOut className="h-4 w-4" />
-            Sign out
+            Sign outs
           </button>
         </div>
       </aside>
